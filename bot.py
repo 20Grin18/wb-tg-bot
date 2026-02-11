@@ -123,11 +123,7 @@ def main():
     app.add_handler(CommandHandler("yesterday", yesterday))
     app.add_handler(CommandHandler("today", today))
 
-    app.job_queue.run_daily(
-        scheduled_job,
-        time=datetime.now(tz=TZ_MSK).replace(hour=REPORT_HOUR, minute=REPORT_MINUTE, second=0, microsecond=0).time()
-    )
-
+   
     app.run_polling()
 
 if __name__ == "__main__":
